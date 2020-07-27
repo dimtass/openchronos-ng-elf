@@ -22,13 +22,13 @@ Configure the firmware
 
 You can configure the firmware and select which modules you need. To do this, run:
 ```sh
-docker run --rm -it --privileged -v /dev/bus/usb:/dev/bus/usb -v $(pwd):/tmp -w=/tmp dimtass/msp430-cde-image:latest -c "python ./tools/config.py"
+docker run --rm -it -v $(pwd):/tmp -w=/tmp dimtass/msp430-cde-image:latest -c "python ./tools/config.py"
 ```
 
 Then select the modules you need. After this you need to create the `modinit.c` file. To do
 this run the following command:
 ```sh
-docker run --rm -it --privileged -v /dev/bus/usb:/dev/bus/usb -v $(pwd):/tmp -w=/tmp dimtass/msp430-cde-image:latest -c "python ./tools/make_modinit.py"
+docker run --rm -it -v $(pwd):/tmp -w=/tmp dimtass/msp430-cde-image:latest -c "python ./tools/make_modinit.py"
 ```
 
 Building the firmware
