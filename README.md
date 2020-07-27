@@ -1,6 +1,8 @@
 CMake template for TI eZ430 Chronos
 ----
 
+[![dimtass](https://circleci.com/gh/dimtass/openchronos-ng-elf.svg?style=svg)](https://circleci.com/gh/dimtass/openchronos-ng-elf)
+
 This repo is a fork from [here](https://github.com/BenjaminSoelberg/openchronos-ng-elf).
 
 The reason I've forked the repo is that it wasn't working for me and therefore needed to
