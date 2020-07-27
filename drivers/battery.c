@@ -64,6 +64,8 @@
 #include "ports.h"
 #include "adc12.h"
 
+struct battery_info_t battery_info;
+
 void battery_init(void)
 {
     /* Start with battery voltage estimate of full and avoid low

@@ -160,7 +160,7 @@ typedef union {
 } as_status_register_flags;
 extern volatile as_status_register_flags as_status;
 
-volatile uint8_t as_last_interrupt;
+extern volatile uint8_t as_last_interrupt;
 
 /******************************************************************************/
 /* Global Variable section */

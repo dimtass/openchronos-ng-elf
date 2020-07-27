@@ -46,7 +46,7 @@
 #define PORTS_BTN_DOWN_PIN (BIT0)
 
 
-inline void initialize_aclk()
+static inline void initialize_aclk()
 {
     /* Select XIN, XOUT on P5.0 and P5.1 */
     P5SEL |= 0x03;
@@ -64,7 +64,7 @@ inline void initialize_aclk()
     UCSCTL4 = SELA__XT1CLK | SELS__DCOCLKDIV | SELM__DCOCLKDIV;
 }
 
-inline void initialize_cpu_12mhz()
+static inline void initialize_cpu_12mhz()
 {
     /* Disable the FLL control loop */
     _BIS_SR(SCG0);
@@ -95,7 +95,7 @@ inline void initialize_cpu_12mhz()
     } while ((SFRIFG1 & OFIFG));
 }
 
-inline void initialize_buttons()
+static inline void initialize_buttons()
 {
     /* Set button ports to input */
     P2DIR &= ~ALL_BUTTONS;
@@ -105,7 +105,7 @@ inline void initialize_buttons()
     P2REN |= ALL_BUTTONS;
 }
 
-inline void initialize_lcd()
+static inline void initialize_lcd()
 {
     /* clear entire display memory */
     LCDBMEMCTL |= LCDCLRBM + LCDCLRM;
@@ -143,7 +143,7 @@ inline void initialize_lcd()
 #endif
 }
 
-inline void jump_to_rfbsl()
+static inline void jump_to_rfbsl()
 {
     /* clear display memory (useful to know if rfbsl failed) */
     LCDBMEMCTL |= LCDCLRBM + LCDCLRM;

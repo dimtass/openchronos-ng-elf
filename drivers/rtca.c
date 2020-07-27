@@ -38,6 +38,9 @@
 #define BASE_YEAR 1984 /* not a leap year, so no need to add 1 */
 #define LEAPS_SINCE_YEAR(Y) (((Y) - BASE_YEAR) + ((Y) - BASE_YEAR) / 4);
 
+volatile enum rtca_tevent rtca_last_event;
+struct DATETIME rtca_time;
+
 #ifdef CONFIG_MOD_CLOCK_AMPM
 uint8_t display_am_pm = 1;
 #else

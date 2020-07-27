@@ -1,0 +1,1 @@
+-mmcu=cc430f6137  -Wall -fno-force-addr -finline-limit=1 -fno-schedule-insns -mhwmult=none -fshort-enums -Wl,-Map=output.map -Os -fdata-sections -ffunction-sections -fomit-frame-pointer

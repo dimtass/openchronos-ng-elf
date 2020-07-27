@@ -30,14 +30,14 @@ set(module_config_files
     ${CMAKE_CURRENT_SOURCE_DIR}/modinit.c
 )
 
+set(MSP430_DEFINES " \
+    -D__CC430F6137__ \
+    ")
+
 set(rtca_header ${CMAKE_CURRENT_SOURCE_DIR}/drivers/rtca_now.h)
 set(source_files
     ${rtca_header}
     ${module_config_files}
-    messagebus.c
-    openchronos.c
-    boot.c
-    menu.c
 
     drivers/lpm.c
     drivers/battery.c
@@ -70,9 +70,17 @@ set(source_files
     modules/stopwatch.c
     modules/accelerometer.c
     modules/buzztest.c
+
+    messagebus.c
+    openchronos.c
+    boot.c
+    menu.c
 )
 add_executable(${openchronos_binary_filename} ${source_files})
 target_include_directories(${openchronos_binary_filename} PRIVATE .)
+# set_source_files_properties(${source_files}
+#     PROPERTIES COMPILE_FLAGS "-D__CC430F6137__"
+# )
 
 
 find_package(PythonInterp)
@@ -173,3 +181,11 @@ else()
         ${CMAKE_CURRENT_SOURCE_DIR}
   )
 endif()
+
+add_custom_command(TARGET ${openchronos_binary_filename} POST_BUILD
+    COMMAND ${CMAKE_SIZE} --format=berkeley "${openchronos_binary_filename}")
+
+add_custom_target(flash
+    COMMAND mspdebug rf2500 "${openchronos_binary_filename}"
+    DEPENDS ${openchronos_binary_filename}
+)

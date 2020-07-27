@@ -1,0 +1,13 @@
+version: 2.1
+jobs:
+  build:
+    docker:
+      - image: dimtass/msp430-cde-image:latest
+    steps:
+      - checkout
+      - run:
+          name: Build firmware
+          command: |
+            git submodule sync
+            git submodule update --init --recursive
+            ./build.sh

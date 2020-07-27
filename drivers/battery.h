@@ -78,12 +78,14 @@ void battery_measurement(void);
 /* Where we consider the battery empty */
 #define BATTERY_EMPTY_THRESHOLD         (220u)
 
-struct {
+struct battery_info_t {
     /* Battery voltage */
     uint16_t voltage;
 
     /* Battery voltage offset */
     int16_t offset;
-} battery_info;
+};
+
+extern struct battery_info_t battery_info;
 
 #endif /* __BATTERY_H__ */

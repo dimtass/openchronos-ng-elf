@@ -32,9 +32,11 @@ void temperature_measurement(void);
 void temperature_get_C(int16_t *temp);
 void temperature_get_F(int16_t *temp);
 
-struct {
+struct temperature_t {
     uint16_t value;
     int16_t offset;
-} temperature;
+};
+
+extern volatile struct temperature_t temperature;
 
 #endif /* __TEMPERATURE_H__ */

@@ -66,6 +66,8 @@
 #include "vti_as.h"
 #include "timer.h"
 
+volatile uint8_t as_last_interrupt;
+
 #ifndef CONFIG_MOD_ACCELEROMETER
 void as_disconnect(void)
 {

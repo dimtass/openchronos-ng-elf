@@ -79,6 +79,8 @@ static volatile uint8_t delay_finished;
 
 /* programable timer */
 static uint16_t timer0_prog_ticks;
+volatile enum timer0_event timer0_last_event;
+volatile uint16_t timer0_20hz_counter;
 
 static void (*delay_callback)(void) = NULL;
 

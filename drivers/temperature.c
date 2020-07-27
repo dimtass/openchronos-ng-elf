@@ -65,6 +65,8 @@
 /* The code below is optimized to this value, DO NOT CHANGE */
 #define TEMPORAL_FILTER_WINDOW 4
 
+volatile struct temperature_t temperature;
+
 static uint8_t adcresult[TEMPORAL_FILTER_WINDOW];
 static uint8_t adcresult_idx = 0;
 

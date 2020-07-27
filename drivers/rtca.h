@@ -54,10 +54,10 @@ struct DATETIME {
     uint8_t sec;    /* cache of RTC seconds register */
 };
 
-struct DATETIME rtca_time;
+extern struct DATETIME rtca_time;
 
 // Holds 12h/24h choice
-uint8_t display_am_pm;
+extern uint8_t display_am_pm;
 
 #define rtca_stop()  (RTCCTL01 |=  RTCHOLD)
 #define rtca_start() (RTCCTL01 &= ~RTCHOLD)
@@ -79,6 +79,6 @@ void rtca_enable_alarm();
 void rtca_disable_alarm();
 
 /* exclusive use by openchronos system */
-volatile enum rtca_tevent rtca_last_event;
+extern volatile enum rtca_tevent rtca_last_event;
 
 #endif /* __RTCA_H__ */

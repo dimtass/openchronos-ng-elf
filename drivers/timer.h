@@ -50,7 +50,7 @@ void timer0_init(void);
     \details This is a counter variable, its value is updated at 20Hz. You can use this to measure timings.
     \note counter overflows should be relatively safe since they only happen once each 3276.8 seconds. However you should handle overflows if your application cannot accept sporadic failures in measurement.
 */
-volatile uint16_t timer0_20hz_counter;
+extern volatile uint16_t timer0_20hz_counter;
 
 /*!
     \brief creates a 1000Hz - 1Hz programmable timer
@@ -115,6 +115,6 @@ enum timer0_event {
     \note This function is to be used exclusively by the system. No module is allowed to read or write to this variable.
     \internal
 */
-volatile enum timer0_event timer0_last_event;
+extern volatile enum timer0_event timer0_last_event;
 
 #endif /* __TIMER_H__ */
